@@ -1,7 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .rotate-animation {
     transition: transform 2s ease-in-out;
   }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -61,7 +61,7 @@ export default function Weather(props) {
     .map((day) => {
       let date = new Date(day.datetime);
       return (
-        <Card className="border border-white/20 bg-[#48319d]/20 text-white overflow-hidden shadow-inner grow basis-0 backdrop-contrast-10">
+        <Card className="flex-none w-[120px] overflow-hidden border border-white/20 bg-[#48319d]/20 text-white shadow-inner grow md:basis-0 backdrop-contrast-10">
           <CardBody className="flex items-center gap-1">
             <p>{weekDays[date.getDay()]}</p>
             {getConditionIcon(day.icon, "2xl")}
@@ -74,12 +74,12 @@ export default function Weather(props) {
   return (
     <Card
       isBlurred
-      className="border-none bg-background/60 dark:bg-default-100/50 w-[1200px] min-w-[900px]"
+      className="border-none bg-default-100/10 md:bg-default-100/50 px-4 md:px-0 md:w-[1200px] md:min-w-[900px]"
       shadow="lg"
     >
-      <CardBody className="p-0">
-        <div className="flex items-center">
-          <div className="grid gap-2 bg-white/25 p-4 w-3/12">
+      <CardBody className="p-1 md:p-0">
+        <div className="md:flex items-center grow">
+          <div className="grid gap-2 bg-white/25 p-4 w-full md:w-3/12 rounded-b-2xl md:rounded-large">
             <div className="flex items-center gap-4">
               <Input
                 label="Search"
@@ -135,16 +135,17 @@ export default function Weather(props) {
             <Divider className="my-4" />
             <p>{props.date}</p>
           </div>
-          <div className="w-9/12 p-4 flex flex-col gap-4">
+          <div className="w-full md:w-9/12 p-4 flex flex-col gap-4">
             <div>
               <Button isIconOnly onPress={() => props.onUnitChange()}>
                 {props.unit}
               </Button>
             </div>
-            <div className="flex gap-4 flex-wrap justify-between">
+            <div className="flex flex-row overflow-x-auto md:grid-cols-7 gap-4 scrollbar-hide justify-between">
               {dayCards}
             </div>
-            <div className="grid grid-cols-5 gap-4">
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               <UVIndexCard
                 indexLevel={props.weatherData.currentConditions.uvindex}
               />

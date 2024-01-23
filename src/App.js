@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Weather from "./components/Weather";
-import { NextUIProvider } from "@nextui-org/react";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -128,9 +127,8 @@ export default function App() {
     else setUnit('°C');
   }
   return (
-    <NextUIProvider>
       <div
-        className="h-screen flex items-center place-content-center"
+        className="overflow-auto h-screen sm:h-auto md:flex items-center place-content-center"
         style={{
           backgroundImage: `url("${
             backgroundImage || "https://picsum.photos/1600/700"
@@ -151,6 +149,5 @@ export default function App() {
           <div></div>
         )}
       </div>
-    </NextUIProvider>
   );
 }
